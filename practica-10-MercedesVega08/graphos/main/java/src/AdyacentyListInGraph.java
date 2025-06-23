@@ -1,4 +1,5 @@
-import java.utils.List;
+import java.util.List;
+import java.util.LinkedList;
 
 //final = constante
 public class AdyacentyListInGraph implements InterfaceGraph{
@@ -42,5 +43,4 @@ public class AdyacentyListInGraph implements InterfaceGraph{
 
         return adj[v];
     }
-    //ggthfggfngfnn
 }

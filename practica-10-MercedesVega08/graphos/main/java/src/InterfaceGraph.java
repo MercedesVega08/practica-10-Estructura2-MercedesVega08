@@ -1,6 +1,6 @@
+import java.util.List;
 
-
-public class InterfaceGraph {
+public interface InterfaceGraph {
     
     public int V();
 
