@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.LinkedList;
 
 //final = constante
-public class AdyacentyListInGraph implements InterfaceGraph{
+public class AdjacentyListIntGraph implements InterfaceGraph{
     
     //Numero del nodo
     private final int V;
@@ -11,7 +11,7 @@ public class AdyacentyListInGraph implements InterfaceGraph{
     //Lista de adyacencia del grafo
     private List<Integer> adj[];
 
-    public AdyacentyListInGraph(int V){
+    public AdjacentyListIntGraph(int V){
         if(V < 0) throw new IllegalArgumentException();
 
         this.V = V;

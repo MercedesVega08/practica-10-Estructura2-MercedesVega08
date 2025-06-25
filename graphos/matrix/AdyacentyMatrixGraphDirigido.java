@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
-import adjacentyList.*;
+
+import adjacentyList2.*;
+
 import java.util.LinkedList;
 
 public class AdyacentyMatrixGraphDirigido{

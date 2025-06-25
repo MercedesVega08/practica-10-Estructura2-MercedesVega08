@@ -1,9 +1,7 @@
-package adjacentyList;
 import java.util.LinkedList;
 import java.util.List;
 
-
-public class AdjacentyListInGraphDirigido implements InterfaceGraph {
+public class AdjacentyListIntGraphDirigido implements InterfaceGraph {
     
     //Cantidad de nodos en el grafo
     private final int V;
@@ -16,7 +14,7 @@ public class AdjacentyListInGraphDirigido implements InterfaceGraph {
      * @pre El nodo V no puede ser negativo
      * @post Construye una nueva Lista de adyacencia del grafo no dirigido
      */
-    public AdjacentyListInGraphDirigido(int V){
+    public AdjacentyListIntGraphDirigido(int V){
         if(V < 0) throw new IllegalArgumentException();
 
         this.V = V;
