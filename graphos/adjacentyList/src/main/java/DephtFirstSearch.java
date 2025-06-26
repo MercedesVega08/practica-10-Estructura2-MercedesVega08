@@ -12,6 +12,10 @@ public class DephtFirstSearch{
         dfs(G, s);
     }
 
+    public int getCount(){
+        return count;
+    }
+
     private void dfs(AdjacentyListIntGraph G, int v){
         marked[v] = true;
         for (int w : G.adj(v)) {
@@ -24,7 +28,13 @@ public class DephtFirstSearch{
     }
 
     public boolean isConexo(AdjacentyListIntGraph G){
-        //for(int v : G.adj(v))
+           
+        for(int w = 0; w < G.V(); w++){
+            dfs(G, w);
+        }
+        if(getCount() == G.V())
+            return true;
+
         return false;
     }
 }
