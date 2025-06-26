@@ -1,4 +1,4 @@
-package adjacentyList2;
+package src.main.java.adjacentyList2;
 import java.util.LinkedList;
 import java.util.List;
 

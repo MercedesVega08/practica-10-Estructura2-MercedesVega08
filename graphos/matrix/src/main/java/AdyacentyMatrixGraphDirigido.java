@@ -1,9 +1,8 @@
+
 import java.util.ArrayList;
 import java.util.List;
-
-import adjacentyList2.*;
-
 import java.util.LinkedList;
+import src.main.java.adjacentyList2.*;
 
 public class AdyacentyMatrixGraphDirigido{
     
@@ -44,19 +43,6 @@ public class AdyacentyMatrixGraphDirigido{
         return list.adj(v);
     }
 
-    public void print(int v) {
-        for(int i=0; i<(V*V); i++){
-            for(int j=0; j<(V*V); j++){
-                System.out.print("["+adj[i][j]+"]");
-            } System.out.println();
-        }
-
-       // for(int i = 0; i < V(); i++){
-         //   for(int j = i; j < V(); j++)
-                System.out.println("[" + adj(v) + "]");
-            //System.out.println();
-        //}
-    }
 
     public static void main(String[] args) {
         AdyacentyMatrixGraphDirigido graphito = new AdyacentyMatrixGraphDirigido(5);
@@ -76,6 +62,16 @@ public class AdyacentyMatrixGraphDirigido{
         graphito.addEdge(4, 4);
         System.out.println("Aristas: " + graphito.E());
         System.out.println("Vertices: " + graphito.V());
-        graphito.print(0);
+       for(int i=0; i<(graphito.V*graphito.V); i++){
+            for(int j=0; j<(graphito.V*graphito.V); j++){
+                System.out.print("["+graphito.adj[i][j]+"]");
+            } System.out.println();
+        }
+
+        String print = "[";
+        for(int i = 0; i < graphito.V(); i++)
+            print += i + ":" + graphito.adj(i) + ", ";
+        print += "]";
+        System.out.println(print.replaceFirst(", ]", "]"));
     }
 }

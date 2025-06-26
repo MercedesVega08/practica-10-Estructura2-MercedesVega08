@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.LinkedList;
+import queue.*;
 
 //final = constante
 public class AdjacentyListIntGraph implements InterfaceGraph{
@@ -31,8 +32,8 @@ public class AdjacentyListIntGraph implements InterfaceGraph{
     }
 
     public void addEdgeDirigido(int v, int w){
-        if(v < 0 || V >= v) throw new IllegalArgumentException();
-        if(w < 0 || V >= w) throw new IllegalArgumentException();
+        if(v < 0 || V <= v ) throw new IllegalArgumentException();
+        if(w < 0 || V <= w) throw new IllegalArgumentException();
 
         E++;
         adj[v].add(w);
@@ -48,8 +49,22 @@ public class AdjacentyListIntGraph implements InterfaceGraph{
     }
 
     public List<Integer> adj(int v){
-        if(v < 0 || V >= v) throw new IllegalArgumentException();
+        if(v < 0 || V <= v) throw new IllegalArgumentException();
 
         return adj[v];
+    }
+
+    public static void main(String[] args){
+        AdjacentyListIntGraph graph = new AdjacentyListIntGraph(4);
+        graph.addEdgeNoDirigido(0, 1);
+        graph.addEdgeNoDirigido(2, 1);
+        graph.addEdgeNoDirigido(3, 2);
+        graph.addEdgeNoDirigido(0, 3);
+        String print = " [";
+        for(int i = 0; i < graph.V(); i++){
+            print += i + ":" + graph.adj(i) + ", ";
+        }
+        print += "]";
+        System.out.println(print.replaceFirst(", ]", "]"));
     }
 }

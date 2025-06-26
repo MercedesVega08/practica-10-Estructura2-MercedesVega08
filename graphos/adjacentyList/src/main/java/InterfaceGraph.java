@@ -11,4 +11,6 @@ public interface InterfaceGraph {
     public void addEdgeNoDirigido(int v, int w);
 
     public List<Integer> adj(int v);
+
+    //public static void main(String[] args);
 }

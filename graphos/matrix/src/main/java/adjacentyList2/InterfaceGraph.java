@@ -1,4 +1,4 @@
-package adjacentyList2;
+package src.main.java.adjacentyList2;
 import java.util.List;
 
 public interface InterfaceGraph {

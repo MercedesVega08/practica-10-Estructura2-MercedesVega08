@@ -20,7 +20,7 @@ java {
     }
 }
 
-//mainClassName = 'AdyacentyMain'
+//mainClassName = 'MatrixMain'
 
 dependencies {
 	testImplementation(platform('org.junit:junit-bom:5.10.2'))

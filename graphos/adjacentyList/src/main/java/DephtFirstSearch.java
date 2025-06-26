@@ -22,16 +22,16 @@ public class DephtFirstSearch{
             if(marked[w] != true){
                 count++;
                 edgeTo[w] = v;
-                dfs(G, v);
+                dfs(G, w);
             }
         }
     }
 
     public boolean isConexo(AdjacentyListIntGraph G){
            
-        for(int w = 0; w < G.V(); w++){
-            dfs(G, w);
-        }
+       // for(int w = 0; w < G.V(); w++){
+         //   dfs(G, w);
+        //}
         if(getCount() == G.V())
             return true;
 
