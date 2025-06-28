@@ -29,12 +29,24 @@ public class DephtFirstSearch{
 
     public boolean isConexo(AdjacentyListIntGraph G){
            
-       // for(int w = 0; w < G.V(); w++){
-         //   dfs(G, w);
-        //}
+        for(int w = 0; w < G.V(); w++){
+            dfs(G, w);
+        }
         if(getCount() == G.V())
             return true;
 
         return false;
+    }
+
+    public String toString(){
+        String print = "[";
+        for(int i = 0; i < edgeTo.length; i++){
+            print += i +  ":" + edgeTo[i];
+            if(i == edgeTo.length-1)
+                print += "]";
+            else
+                print += ", ";
+        }
+        return print;
     }
 }

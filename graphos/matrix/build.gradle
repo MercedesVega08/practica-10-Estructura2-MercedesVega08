@@ -20,7 +20,7 @@ java {
     }
 }
 
-//mainClassName = 'MatrixMain'
+mainClassName = 'MatrixMain'
 
 dependencies {
 	testImplementation(platform('org.junit:junit-bom:5.10.2'))

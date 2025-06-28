@@ -1,4 +1,4 @@
-package src.main.java.adjacentyList2;
+package adjacentyList2;
 import java.util.List;
 
 public interface InterfaceGraph {
@@ -7,7 +7,9 @@ public interface InterfaceGraph {
 
     public int E();
 
-    public void addEdge(int v, int w);
+    public void addEdgeDirigido(int v, int w);
+
+    public void addEdgeNoDirigido(int v, int w);
 
     public List<Integer> adj(int v);
 }

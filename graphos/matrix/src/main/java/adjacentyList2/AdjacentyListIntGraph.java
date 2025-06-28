@@ -1,9 +1,9 @@
-package src.main.java.adjacentyList2;
+package adjacentyList2;
 import java.util.List;
 import java.util.LinkedList;
 
 //final = constante
-public class AdyacentyListInGraph implements InterfaceGraph{
+public class AdjacentyListIntGraph implements InterfaceGraph{
     
     //Numero del nodo
     private final int V;
@@ -12,7 +12,7 @@ public class AdyacentyListInGraph implements InterfaceGraph{
     //Lista de adyacencia del grafo
     private List<Integer> adj[];
 
-    public AdyacentyListInGraph(int V){
+    public AdjacentyListIntGraph(int V){
         if(V < 0) throw new IllegalArgumentException();
 
         this.V = V;
@@ -30,17 +30,25 @@ public class AdyacentyListInGraph implements InterfaceGraph{
         return E;
     }
 
-    public void addEdge(int v, int w){
-        if(v < 0 || V >= v) throw new IllegalArgumentException();
-        if(w < 0 || V >= w) throw new IllegalArgumentException();
+    public void addEdgeNoDirigido(int v, int w){
+        if(v < 0 || v >= V) throw new IllegalArgumentException();
+        if(w < 0 || w >= V) throw new IllegalArgumentException();
 
         E++;
         adj[v].add(w);
         adj[w].add(v);
     }
 
+    public void addEdgeDirigido(int v, int w){
+        if(v < 0 || v >= V) throw new IllegalArgumentException();
+        if(w < 0 || w >= V) throw new IllegalArgumentException();
+        
+        E++;
+        adj[v].add(w);
+    }
+
     public List<Integer> adj(int v){
-        if(v < 0 || V >= v) throw new IllegalArgumentException();
+        if(v < 0 || V <= v) throw new IllegalArgumentException();
 
         return adj[v];
     }

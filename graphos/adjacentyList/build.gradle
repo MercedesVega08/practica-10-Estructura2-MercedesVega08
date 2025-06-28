@@ -20,7 +20,8 @@ java {
     }
 }
 
-//mainClassName = 'AdyacentyMain'
+mainClassName = 'AdjacentyMain'
+mainClassName = 'DephtMain'
 
 dependencies {
 	testImplementation(platform('org.junit:junit-bom:5.10.2'))
