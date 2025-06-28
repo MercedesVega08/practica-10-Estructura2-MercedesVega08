@@ -14,5 +14,9 @@ public class AdjacentyMain{
         System.out.println("Vertices: " + graphito.V());
         System.out.println("Aristas: " + graphito.E());
         System.out.println(graphito.toString());
+        DephtFirstSearch control = new DephtFirstSearch(graphito, 0);
+        System.out.println("Es conexo: " + control.isConexoFuerte(graphito));
+        System.out.println(control.toString());
+        System.out.println("Count: " + control.getCount());
     }
 }

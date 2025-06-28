@@ -5,15 +5,19 @@ public class GraphosTest{
 
     @Test
     public void testGrafoConexo(){
-        AdjacentyListIntGraph grafito = new AdjacentyListIntGraph(4);
-        grafito.addEdgeDirigido(0, 1);
-        grafito.addEdgeDirigido(2, 1);
-        grafito.addEdgeDirigido(3, 2);
+        AdjacentyListIntGraph grafito = new AdjacentyListIntGraph(6);
         grafito.addEdgeDirigido(0, 3);
+        grafito.addEdgeDirigido(0, 5);
+        grafito.addEdgeDirigido(1, 4);
+        grafito.addEdgeDirigido(2, 0);
+        grafito.addEdgeDirigido(2, 5);
+        grafito.addEdgeDirigido(3, 1);
+        grafito.addEdgeDirigido(4, 2);
+        grafito.addEdgeDirigido(5, 4);
         DephtFirstSearch control = new DephtFirstSearch(grafito, 0);
-        //for(int i = 1; i < grafito.V(); i++)
-          //   control = new DephtFirstSearch(grafito, i);
-        control.isConexo(grafito);
-       // assertTrue(control.isConexo(grafito));
+        control.isConexoDebil(grafito);
+        assertTrue(control.isConexoDebil(grafito));
+        //control.isConexoFuerte(grafito);
+        assertFalse(control.isConexoFuerte(grafito));
     }
 }

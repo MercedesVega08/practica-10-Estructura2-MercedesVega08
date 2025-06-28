@@ -13,5 +13,6 @@ public class DephtMain {
         graphito.addEdgeDirigido(5, 4);
         DephtFirstSearch control = new DephtFirstSearch(graphito, 0);
         System.out.println(control.toString());
+        System.out.println("Es conexo: " + control.isConexoFuerte(graphito));
     } 
 }
