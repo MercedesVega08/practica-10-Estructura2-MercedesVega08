@@ -21,7 +21,7 @@ java {
 }
 
 mainClassName = 'AdjacentyMain'
-mainClassName = 'DephtMain'
+//mainClassName = 'DephtMain'
 
 dependencies {
 	testImplementation(platform('org.junit:junit-bom:5.10.2'))
