@@ -73,38 +73,6 @@ public class Coloreo{
         }
     }
 
-    /* 
-    private void bfs(AdjacentyListIntGraph G, int v){
-        marked[v] = true;
-        Queue<Integer> queue = new CircularQueue<>();
-        queue.enqueue(v);
-        while(!queue.isEmpty()){
-            int s = queue.dequeue();
-            for(int w : G.adj(v)){
-                if(marked[w] != true){
-                    marked[w] = true;
-                    edgeTo[w] = s;
-                    queue.enqueue(w);
-                }
-            }
-        }
-    }
-
-    */
-
-    /*
-    public void dfs(AdjacentyListIntGraph G, int v){
-        if(v < 0 || v >= G.V()) throw new IllegalArgumentException();
-        count++;
-        marked[v] = true;
-        for (int w : G.adj(v)) {
-            if(marked[w] == false){
-                edgeTo[w] = v;
-                dfs(G, w);
-            }
-        }
-    }
-*/
     public String toString(){
         String print = "[";
 
