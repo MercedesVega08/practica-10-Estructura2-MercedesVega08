@@ -48,6 +48,10 @@ public class AdjacentyListIntGraph implements InterfaceGraph{
         adj[w].add(v);
     }
 
+    public int next(int v, int next){
+        return adj[v].get(next);
+    }
+
     public List<Integer> adj(int v){
         if(v < 0 || V <= v) throw new IllegalArgumentException();
 

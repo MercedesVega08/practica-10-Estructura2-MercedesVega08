@@ -18,17 +18,12 @@ public class DephtFirstSearch{
 
     public void dfs(AdjacentyListIntGraph G, int v){
         if(v < 0 || v >= G.V()) throw new IllegalArgumentException();
-        System.out.println("Count: " + count);
         count++;
         marked[v] = true;
-        System.out.println("marked: " + marked[v]);
         for (int w : G.adj(v)) {
-            System.out.println("w: " + w);
             if(marked[w] == false){
-                System.out.println("w:" + w);
                 edgeTo[w] = v;
                 dfs(G, w);
-                System.out.println("Count final: " + count);
             }
         }
     }
@@ -46,7 +41,6 @@ public class DephtFirstSearch{
         int i = 0;
         while( i < G.V()){
             count = 0;
-            System.out.println(count);
             marked = new boolean[G.V()];
             edgeTo = new int[G.V()];
             dfs(G, i);
@@ -55,7 +49,6 @@ public class DephtFirstSearch{
                 cantTrue++;
             }
             i++;
-            System.out.println("CantTrue: " + cantTrue);
         }
         return (cantTrue == G.V());
     }

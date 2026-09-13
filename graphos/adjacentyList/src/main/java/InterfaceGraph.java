@@ -12,5 +12,7 @@ public interface InterfaceGraph {
 
     public List<Integer> adj(int v);
 
+    public int next(int v, int next);
+
     public String toString();
 }
