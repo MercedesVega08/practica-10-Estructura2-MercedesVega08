@@ -10,6 +10,10 @@ plugins {
     id 'application'
 }
 
+application{
+	mainClass = 'AdjacentyMain'
+}
+
 repositories {
 	mavenCentral()
 }
@@ -19,9 +23,6 @@ java {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
-
-mainClassName = 'AdjacentyMain'
-//mainClassName = 'DephtMain'
 
 dependencies {
 	testImplementation(platform('org.junit:junit-bom:5.10.2'))

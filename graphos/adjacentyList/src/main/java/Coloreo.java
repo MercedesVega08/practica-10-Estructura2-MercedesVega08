@@ -1,6 +1,8 @@
 import java.util.List;
 import java.util.LinkedList;
 
+import queue.*;
+
 public class Coloreo{
 
     private AdjacentyListIntGraph grafo;
@@ -9,6 +11,8 @@ public class Coloreo{
 
     private boolean[] marked;
 
+    private int[] colorProhibido;
+
     public Coloreo(AdjacentyListIntGraph grafo){
         this.grafo = grafo;
         coloreado = new LinkedList<>();
@@ -16,23 +20,91 @@ public class Coloreo{
     }
 
     public List<Tuplas<Integer, String>> coloreo(String[] colores){
-        Tuplas<Integer, String> grafoColor;
-
-        for(int i = 0; i < grafo.V(); i++){
-            for (int g : grafo.adj(i)) {
-                for(int j = 0; j < colores.length; j++){
-                    if(!marked[g]){
-                        grafoColor = new Tuplas<Integer,String>(g, colores[j]);
-                        coloreado.add(grafoColor);
-                        marked[g] = true;
-                    }
-                }
-            }
+        colorProhibido = new int[colores.length];
+        try {
+            recursivo(colores, 0, 0);
+            System.out.println("Coloreo exitosso");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Fallo en el coloreo: " + e.getMessage());
+        } finally{
+            System.out.println("Proceso de prueba finalizado");
         }
-        
         return coloreado;
     }
 
+    
+
+    private void recursivo(String[] colores, int inicio, int indexColor){
+        if(colores.length == 0) throw new  IllegalArgumentException();
+
+        if(inicio < 0 || inicio >= grafo.V()) throw new IllegalArgumentException();
+
+        if(indexColor < 0 || indexColor >= colores.length) throw new IllegalArgumentException();
+
+        marked[inicio] = true;
+        int colorElegido = -1;
+
+        for(int i = 0; i < colores.length; i++){
+            boolean colorLibre = true;
+
+            for(int w : grafo.adj(inicio)){
+               if(marked[w] && colorProhibido[w] == i){
+                    colorLibre = false;
+                    break;
+               }
+            }
+
+            if(colorLibre){
+                colorElegido = i;
+                break;
+            }
+        }
+
+        if(colorElegido == -1) 
+            throw new IllegalArgumentException("Con la cantidad de colores brindados esimposible colorear el grafo");
+
+        coloreado.add(new Tuplas<Integer,String>(inicio, colores[colorElegido]));
+        colorProhibido[inicio] = colorElegido;
+
+        for(int w: grafo.adj(inicio)){
+           if(!marked[w]){
+                recursivo(colores, w, colorElegido);
+           }
+        }
+    }
+
+    /* 
+    private void bfs(AdjacentyListIntGraph G, int v){
+        marked[v] = true;
+        Queue<Integer> queue = new CircularQueue<>();
+        queue.enqueue(v);
+        while(!queue.isEmpty()){
+            int s = queue.dequeue();
+            for(int w : G.adj(v)){
+                if(marked[w] != true){
+                    marked[w] = true;
+                    edgeTo[w] = s;
+                    queue.enqueue(w);
+                }
+            }
+        }
+    }
+
+    */
+
+    /*
+    public void dfs(AdjacentyListIntGraph G, int v){
+        if(v < 0 || v >= G.V()) throw new IllegalArgumentException();
+        count++;
+        marked[v] = true;
+        for (int w : G.adj(v)) {
+            if(marked[w] == false){
+                edgeTo[w] = v;
+                dfs(G, w);
+            }
+        }
+    }
+*/
     public String toString(){
         String print = "[";
 

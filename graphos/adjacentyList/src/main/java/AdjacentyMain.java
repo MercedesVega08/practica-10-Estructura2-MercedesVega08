@@ -2,15 +2,10 @@
 public class AdjacentyMain{
     
     public static void main(String[] args){
-        AdjacentyListIntGraph graphito = new AdjacentyListIntGraph(6);
-        graphito.addEdgeNoDirigido(0, 3);
-        graphito.addEdgeNoDirigido(0, 5);
-        graphito.addEdgeNoDirigido(1, 4);
+        AdjacentyListIntGraph graphito = new AdjacentyListIntGraph(3);
+        graphito.addEdgeNoDirigido(0, 1);
+        graphito.addEdgeNoDirigido(1, 2);
         graphito.addEdgeNoDirigido(2, 0);
-        graphito.addEdgeNoDirigido(2, 5);
-        graphito.addEdgeNoDirigido(3, 1);
-        graphito.addEdgeNoDirigido(4, 2);
-        graphito.addEdgeNoDirigido(5,4);
         System.out.println("Vertices: " + graphito.V());
         System.out.println("Aristas: " + graphito.E());
         System.out.println(graphito.toString());
@@ -20,7 +15,7 @@ public class AdjacentyMain{
         System.out.println("Count: " + control.getCount());
 
         Coloreo color = new Coloreo(graphito);
-        String[] colores = {"rosa", "rojo", "amarillo"};
+        String[] colores = {"Rojo", "Verde"};
         color.coloreo(colores);
         System.out.println(color.toString());
     }
